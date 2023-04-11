@@ -1,0 +1,21 @@
+:root{
+    /* COLORES */
+    --black: #333333;
+    --white: rgb(240, 240, 240);
+    --primary: #00C896;
+    --secondary: #4B04E1;
+    --secondary-alt: #A57BFF;
+    --alternative: #FF5555;
+    --gray: #D9D9D9;
+
+    /* TAMAÑOS DE TEXTO */
+    --text-xsm: 0.813rem; /* 13 px */
+    --text-sm: 0.938rem; /* 15 px */
+    --text-md: 1rem; /* 18 px */
+    --text-lg: 1.25rem; /* 20 px */
+    --text-xl: 1.563rem; /* 25 px */
+    --text-xxl: 2rem; /* 32 px */
+    --text-display: 2.375rem; /* 38 px */
+}
+
+

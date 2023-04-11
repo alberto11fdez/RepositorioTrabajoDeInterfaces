@@ -1,0 +1,76 @@
+@import url("../assets/base.css");
+
+.navbar{
+    background-color: var(--black);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 0 3rem;
+
+    gap: 2rem;
+}
+
+.navbar > .logo{
+    width: 5.625rem;
+    height: 5.625rem;
+    object-fit: scale-down;
+}
+
+.navbar > .logging{
+    display: flex;
+    margin-left: auto;
+    gap: 1.5rem;
+}
+
+.logging > .user-icon-container{
+    display: flex;
+    align-items: center;
+}
+
+.user-icon-container > .user-icon{
+    width: 2.813rem;
+    height: 2.813rem;
+    object-fit: scale-down;
+    border-radius: 999999px;
+    background-color: var(--gray);
+}
+.user-icon-container > .arrow-button{
+    all: unset;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+}
+
+.arrow-button > img{    
+    width: 2rem;
+    height: 2rem;
+}
+
+.cart{
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.625rem;
+    gap: .9rem;
+
+    border: none;
+    outline: none;
+    border-radius: 9px;
+}
+.cart > img{
+    width: 2.125rem;
+    height: 2.625rem;
+}
+.cart > p{
+    color: var(--white);
+    font-weight: bold;
+    font-size: var(--text-xl);
+}
+.cart > .divisor{
+    width: .2px;
+    height: 70%;
+ 
+    background-color: var(--white);
+    padding: 0;
+}

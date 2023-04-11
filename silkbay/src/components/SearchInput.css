@@ -1,0 +1,34 @@
+@import url("../assets/base.css");
+
+.search-input-container{
+    width: 61.063rem;
+    height: 2.813rem;
+    overflow: hidden;
+    border-radius: 9px;
+    display: flex;
+    
+}
+
+.search-input{
+    width: 90%;
+    height: 100%;
+    background-color: var(--white);
+    font-size: var(--text-md);
+    padding: .7rem;
+    outline: none;
+    border: none;
+
+}
+.search-button{
+    background-color: var(--primary);
+    height: 100%;
+    width: 10%;
+    border: none;
+    cursor: pointer;
+
+}
+.search-button > .search-icon{
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+}
