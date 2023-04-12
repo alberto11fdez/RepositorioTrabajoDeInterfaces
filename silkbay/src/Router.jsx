@@ -4,7 +4,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import AuthLayout from "./layouts/AuthLayout"
-
+import Detail, {loader as DetailLoader} from "./pages/Detail"
 const Router = createBrowserRouter([
     {
         element: <DefaultLayout />,
@@ -13,6 +13,11 @@ const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home/>
+            },
+            {
+                path: "products/:productId",
+                element: <Detail/>,
+                loader: DetailLoader,
             }
         ]
     },

@@ -1,0 +1,53 @@
+
+.home{
+    padding: 1rem 2rem;
+    height: 100%;
+}
+.home > h1{
+    font-size: var(--text-xxl);
+}
+
+.home > .content-wrapper{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    height: 100%;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    row-gap: .4rem;
+
+}
+.filters > button{
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: var(--text-md);
+}
+.filters > button.active-filter{
+    color: var(--primary)
+}
+
+.content-wrapper > .divisor{
+    width: .1rem;
+    background-color: var(--black);
+    opacity: .3;
+    height: 70%;
+}
+
+.content-wrapper > .products{
+    margin-bottom: 5rem;
+}
+.content-wrapper > .products > .product-grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+

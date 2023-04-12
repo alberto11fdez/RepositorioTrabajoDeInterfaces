@@ -16,7 +16,7 @@ export function useAuthHelpers(){
 export default function AuthContext({children}) {
   const [user, setUser] = useState(null);
     function isUserLogged(){
-        return user !== null;
+        return useUser() !== null;
     }
     function logout(){
         setUser(null);

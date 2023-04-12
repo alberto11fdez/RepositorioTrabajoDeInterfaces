@@ -15,24 +15,38 @@ export function useCartHelpers(){
 
 export default function CartContext({children}) {
   const [cartProducts, setCartProducts] = useState([]);
+  
   function emptyCart(){
     setCartProducts([]);
   }
   function addCartProduct(product){
         setCartProducts((cartProducts) => {
-            cartProducts.push(product);
-            return cartProducts;
+            return [...cartProducts, product];
         })
   }
+  function removeProductFromCart(id){
+    setCartProducts((cartProducts) => {
+      return cartProducts.filter(cartProduct => cartProduct.id !== id);
+    })
+  }
+
+  function getCartCount(){
+    return useCartProducts().length;
+  }
   function isProductInCart(id){
-    return cartProducts.find(product => product.id === id) !== -1;
+    const cartProducts = useCartProducts();
+
+    if(cartProducts.length === 0) return false;
+    return cartProducts.findIndex(product => product.id === id) !== -1;
   }
 
   const helpers = {
     emptyCart,
     addCartProduct,
     isProductInCart,
-    setCartProducts
+    setCartProducts,
+    removeProductFromCart,
+    getCartCount
   }
 
   return (

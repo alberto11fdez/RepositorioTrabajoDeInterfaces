@@ -67,9 +67,31 @@
     font-weight: bold;
     font-size: var(--text-xl);
 }
-.cart > .divisor{
+.cart .divisor{
     width: .2px;
     height: 70%;
     background-color: var(--white);
     padding: 0;
+}
+.not-logged-wrapper > .divisor{
+    width: .3px;
+    height: 2rem;
+    background-color: var(--white);
+    display: block;
+}
+
+.not-logged-wrapper{
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+}
+.not-logged-wrapper a{
+    font-size: var(--text-lg);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--white)
+}
+
+.not-logged-wrapper a:last-child{
+    color: var(--primary)
 }
