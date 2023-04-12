@@ -24,10 +24,10 @@ export default function Home() {
   const [currentFilter, setFilter] = useState(ALL);
 
   useEffect(() => {
-    getAllProducts().then((products) => {
-        setProducts(products)
-    })
-  }) 
+      getAllProducts().then((products) => {
+          setProducts(products)
+      })
+  }, []) 
    
   /**
    * @type {import('../utils/db').Product[]}

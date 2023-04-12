@@ -86,7 +86,7 @@
     align-items: center;
 }
 .not-logged-wrapper a{
-    font-size: var(--text-lg);
+    font-size: var(--text-md);
     font-weight: bold;
     text-decoration: none;
     color: var(--white)

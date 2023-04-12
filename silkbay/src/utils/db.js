@@ -1,5 +1,4 @@
-import products from "./products_test.json";
-import users from "./users_test.json";
+const API_URL = "http://localhost:3000/api/";
 
 /**
  * A Category
@@ -44,7 +43,12 @@ export const CATEGORY = {
  * @returns {Promise<Product[]>} list of products
  */
 export async function getAllProducts() {
-	return products;
+	const res = await fetch(API_URL + "products/");
+	if (res.status !== 200) {
+		return [];
+	}
+
+	return await res.json();
 }
 /**
  * An async function that returns a single product by id
@@ -52,9 +56,13 @@ export async function getAllProducts() {
  * @returns {Promise<Product | undefined>} the product or undefined
  */
 export async function getSingleProduct(id) {
-	console.log(id);
-	console.log(products);
-	return products.find((product) => product.id == id);
+	const res = await fetch(API_URL + "products/" + id);
+
+	if (res.status !== 200) {
+		return undefined;
+	}
+
+	return await res.json();
 }
 
 /**
@@ -64,6 +72,9 @@ export async function getSingleProduct(id) {
  * @returns {Promise<User | undefined>} the user to return
  */
 export async function getUser(username) {
-	const user = users.find((user) => user.username == username);
-	return user;
+	const res = await fetch(API_URL + "user?username=" + username);
+	if (res.status !== 200) {
+		return undefined;
+	}
+	return await res.json();
 }
