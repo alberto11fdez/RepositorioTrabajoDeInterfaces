@@ -1,0 +1,53 @@
+@import url("../assets/base.css");
+.login-wrapper{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    width:100%;
+}
+.section1{
+    background-color: var(--primary);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section2{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.Login_Banner{
+    width: 50%;
+    padding-bottom: 6%;
+}
+h2{
+    font-size: var(--text-display);
+    text-align: center;
+    color: var(--white);
+    font-weight: 700;
+}
+.title-login-banner{
+    color: var(--secondary-alt);
+    font-weight: 700;
+}
+.Logo_SilkBay_Icon{
+    width: 15%;
+    padding-bottom: 3%;
+}
+.Ingresar{
+    color: var(--black);
+    padding-bottom: 3%;
+}
+p{
+    text-align: center;
+    font-size: var(--text-lg);
+}
