@@ -70,7 +70,6 @@
 .cart > .divisor{
     width: .2px;
     height: 70%;
- 
     background-color: var(--white);
     padding: 0;
 }
