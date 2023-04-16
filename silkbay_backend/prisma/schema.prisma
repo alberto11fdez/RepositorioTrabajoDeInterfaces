@@ -11,17 +11,26 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String? @default("")
-  username String  @unique
-  password String
+  id        Int        @id @default(autoincrement())
+  email     String?    @default("")
+  username  String     @unique
+  password  String
+  purchases Purchase[]
 }
 
 model Product {
-  id          Int    @id @default(autoincrement())
+  id          Int        @id @default(autoincrement())
   title       String
   price       Float
   description String
   category    String
   image       String
+  purchases   Purchase[]
+}
+
+model Purchase {
+  id       Int       @id @default(autoincrement())
+  user     User      @relation(fields: [userId], references: [id])
+  userId   Int
+  products Product[]
 }

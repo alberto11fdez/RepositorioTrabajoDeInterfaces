@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import bodyParser from "body-parser";
 import express from "express";
 import cors from "cors";
@@ -9,7 +9,18 @@ const prisma = new PrismaClient();
 server.use(bodyParser.json());
 server.use(cors())
 server.get("/api/products", async (request, response)  => {
-    const products = await prisma.product.findMany();
+    const queryOptions:Prisma.ProductFindManyArgs = {};
+    if(request.query.limit !== undefined && typeof request.query.limit === "string"){
+        queryOptions.take = parseInt(request.query.limit);
+    }
+    if (request.query.q !== undefined && typeof request.query.q === "string"){
+        queryOptions.where = {
+            title: {
+                contains: request.query.q
+            }
+        }
+    }
+    const products = await prisma.product.findMany(queryOptions);
     response.status(200).json(products);
 })
 
