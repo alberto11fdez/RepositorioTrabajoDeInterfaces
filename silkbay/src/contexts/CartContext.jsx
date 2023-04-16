@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 
-const cartProductsContext = React.createContext();
+const cartPurchasesContext = React.createContext();
 
 const cartHelpersContext = React.createContext();
 
 
-export function useCartProducts(){
-    return useContext(cartProductsContext);
+export function useCartPurchases(){
+    return useContext(cartPurchasesContext);
 }
 
 export function useCartHelpers(){
@@ -14,46 +14,59 @@ export function useCartHelpers(){
 }
 
 export default function CartContext({children}) {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartPurchases, setCartPurchases] = useState([]);
   
   function emptyCart(){
-    setCartProducts([]);
+    setCartPurchases([]);
   }
   function addCartProduct(product){
-        setCartProducts((cartProducts) => {
-            return [...cartProducts, product];
+        setCartPurchases((cartPurchases) => {
+            return [...cartPurchases, {id: product.id, items: 1, product}];
         })
   }
   function removeProductFromCart(id){
-    setCartProducts((cartProducts) => {
-      return cartProducts.filter(cartProduct => cartProduct.id !== id);
+    setCartPurchases((cartPurchases) => {
+      return cartPurchases.filter(cartProduct => cartProduct.id !== id);
     })
   }
-
+  function changePurchaseItemCount(purchaseId, newCount){
+    setCartPurchases((cartPurchases) => {
+      return cartPurchases.map((purchase) => {
+          if(purchase.id === purchaseId){
+            return {
+              ...purchase,
+              items: newCount
+            }
+          }
+          return purchase;
+      })
+    })
+  }
   function getCartCount(){
-    return useCartProducts().length;
+    return useCartPurchases().length;
   }
   function isProductInCart(id){
-    const cartProducts = useCartProducts();
+    const cartPurchases = useCartPurchases();
 
-    if(cartProducts.length === 0) return false;
-    return cartProducts.findIndex(product => product.id === id) !== -1;
+    if(cartPurchases.length === 0) return false;
+    return cartPurchases.findIndex(product => product.id === id) !== -1;
   }
 
   const helpers = {
     emptyCart,
     addCartProduct,
     isProductInCart,
-    setCartProducts,
+    setCartPurchases,
     removeProductFromCart,
-    getCartCount
+    getCartCount,
+    changePurchaseItemCount
   }
 
   return (
-    <cartProductsContext.Provider value={cartProducts}>
+    <cartPurchasesContext.Provider value={cartPurchases}>
         <cartHelpersContext.Provider value={helpers}>
             {children}
         </cartHelpersContext.Provider>
-    </cartProductsContext.Provider>
+    </cartPurchasesContext.Provider>
   )
 }

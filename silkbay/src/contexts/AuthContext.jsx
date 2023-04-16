@@ -14,10 +14,13 @@ export function useAuthHelpers(){
 
 
 export default function AuthContext({children}) {
-  const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null);
+
     function isUserLogged(){
-        return useUser() !== null;
+        const user  = useUser()
+        return  user !== null;
     }
+
     function logout(){
         setUser(null);
     }

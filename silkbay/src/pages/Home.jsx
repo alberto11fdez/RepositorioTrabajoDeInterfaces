@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
+import Button from "../components/Button"
+import Modal, { useModal } from '../components/Modal'
 import { useCartHelpers } from '../contexts/cartContext'
 import { CATEGORY, getAllProducts } from '../utils/db'
 import "./Home.css"
+import starsIcon from "../assets/stars.png";
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
+import { useAuthHelpers, useUser } from '../contexts/AuthContext'
+ 
 
+export const ALL = "Todo"
+export const CLOTHES = "Ropa"
+export const TECH = "Tecnología"
+export const JEWELRY = "Joyeria";
 
-const ALL = "Todo"
-const CLOTHES = "Ropa"
-const TECH = "Tecnología"
-const JEWELRY = "Joyeria";
-
-const FILTERS = [ALL, CLOTHES, TECH, JEWELRY]
+const FILTERS = [ALL, CLOTHES, TECH, JEWELRY];
 
 export default function Home() {
   /**
@@ -23,12 +28,37 @@ export default function Home() {
    */
   const [currentFilter, setFilter] = useState(ALL);
 
+  
+
+  const [show, setShow] = useModal();
+  
+  const {search} = useLocation();
+  const {setUser} = useAuthHelpers();
+
+
   useEffect(() => {
+      setUser({
+        username: "dev",
+        id: "1",
+        name:"developer",
+        password: "123password"
+      })
+
       getAllProducts().then((products) => {
           setProducts(products)
       })
+      const queryParams = new URLSearchParams(search)  
+      if(queryParams.has("filter")){
+        const queryFilter = queryParams.get("filter");
+        if(FILTERS.findIndex((val) => val === queryFilter) !== -1){
+          setFilter(queryFilter);
+        }
+      }
   }, []) 
    
+  function onCardAdd(){
+    setShow(true)
+  }
   /**
    * @type {import('../utils/db').Product[]}
    */
@@ -53,6 +83,21 @@ export default function Home() {
   }
   return (
     <div className='home'>
+      <Modal title="Ingresa para poder comprar hermosos productos" image={starsIcon} show={show} setShow={setShow} buttons={(
+        <>
+        <Link to="/login">
+          <Button>
+            Ingresar
+          </Button>
+        </Link>
+        <span className='modal-divisor'/>
+        <Link to="/signup">
+        <Button type="alt"> 
+            Crear cuenta          
+        </Button>
+        </Link>
+        </>
+      )}/>
       <h1>Nuestra selección de productos</h1>
       
       <div className="content-wrapper">
@@ -67,7 +112,7 @@ export default function Home() {
             {
               displayedProducts.length > 0 ? (
                 <div className='product-grid'>
-                  {displayedProducts.map((product) => <Card key={product.id + product.title} {...product}/> )}
+                  {displayedProducts.map((product) => <Card onAddHook={onCardAdd} key={product.id + product.title} {...product}/> )}
                 </div>
               ) :
               (

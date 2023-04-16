@@ -57,6 +57,7 @@
     border: none;
     outline: none;
     border-radius: 9px;
+    cursor: pointer;
 }
 .cart > img{
     width: 2.125rem;
@@ -66,8 +67,9 @@
     color: var(--white);
     font-weight: bold;
     font-size: var(--text-xl);
+    text-decoration: none;
 }
-.cart .divisor{
+.cart > .divisor{
     width: .2px;
     height: 70%;
     background-color: var(--white);

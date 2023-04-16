@@ -1,0 +1,67 @@
+@import url("../assets/base.css");
+.cart-page {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content;
+    justify-items: center;
+    padding: 1rem 0;
+}
+.cart-page-wrapper{
+    width: fit-content;
+    height: fit-content;
+}
+
+.cart-header{
+    width: 100%;
+}
+.cart-header h1{
+    margin-bottom: .5rem;
+    font-size: var(--text-xl);
+}
+.cart-divisor{
+    display: block;
+    height: .1rem;
+    width: 70%;
+    background-color: var(--primary);
+}
+.purchases{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    row-gap: 3rem;
+    height: fit-content;
+}
+
+.purchase-brief{
+    margin-top: 3rem;
+}
+.total-info{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.total-info p{
+    font-size: var(--text-xxl);
+    font-weight: bold;
+}
+.total-info p:last-of-type{
+    color: var(--secondary-alt)
+}
+
+/* If empty styles */
+.empty-animation{
+    width: 20.625rem;
+    height: 14.394rem;
+}
+.empty-text{
+    text-align: center;
+    font-size: var(--text-xl);
+}
+
+.related-products{
+    display: flex;
+    column-gap: 2rem;
+    margin-top: 2rem;
+}

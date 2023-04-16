@@ -9,13 +9,17 @@ const SECONDARY = {
 const ALT = {
     backgroundColor: "#FF5555"
 }
-const styles = {
+const buttonStyles = {
+    border: "none",
+    padding: ".6rem 2rem",
     borderRadius: "9px",
-    minWidth: "5rem",
-    minHeight: "2rem",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "1.25rem",
+    cursor: "pointer",
 }
 
-export default function Button({onClick, type, children}) {
+export default function Button({onClick, type, children=[], text, styles={}}) {
   let variant;
     switch(type){
         case "primary":
@@ -33,8 +37,9 @@ export default function Button({onClick, type, children}) {
     }
 
   return (
-    <button onClick={onClick} style={{...styles, ...variant}}>
-        {...children}
+    <button onClick={onClick} style={{...buttonStyles,...styles, ...variant}}>
+        { ...children}
+        {text}
     </button> 
   )
 }

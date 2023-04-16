@@ -4,15 +4,23 @@ import cart from '../assets/icon-cart.png'
 import Arrow from "../assets/icon-right-arrow.png";
 import { useCartHelpers } from '../contexts/CartContext';
 import {Link} from "react-router-dom";
+import { useAuthHelpers, useUser } from '../contexts/AuthContext';
 
 /**
  * 
  * @param {import('../utils/db').Product} product 
  * @returns 
  */
-export default function Card(product) {
+export default function Card({onAddHook, ...product}) {
   const {isProductInCart, addCartProduct, removeProductFromCart} = useCartHelpers();
-
+  const user = useUser();
+  function onAdd(){
+    if(user){
+      addCartProduct(product);
+      return;
+    }
+    onAddHook();
+  }
   let formattedTitle = product.title.length > 30 ? product.title + "..." : product.title
   return (
     <div className='card'>
@@ -31,7 +39,7 @@ export default function Card(product) {
               )
             :
             ( 
-              <button className='add-button' onClick={() => addCartProduct(product)}>
+              <button className='add-button' onClick={() => onAdd()}>
                 <p className='add-button-text'>Añadir</p>
                 <img src={cart} alt="cart icon" className='cart-icon' />
                 <img src={Arrow} alt="arrow icon" className='arrow-icon'/>
