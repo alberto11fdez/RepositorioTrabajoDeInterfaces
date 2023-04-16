@@ -42,7 +42,7 @@ export default function NavBar() {
             Ingresar
           </Link>
           <span className='divisor'></span>
-          <Link to="/login">
+          <Link to="/Register">
             Crear Cuenta
           </Link>
         </div>

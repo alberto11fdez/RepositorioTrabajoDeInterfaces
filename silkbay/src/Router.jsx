@@ -5,6 +5,8 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import AuthLayout from "./layouts/AuthLayout"
 import Detail, {loader as DetailLoader} from "./pages/Detail"
+import RegisterLayout from "./layouts/RegisterLayout"
+import Register from "./pages/register"
 const Router = createBrowserRouter([
     {
         element: <DefaultLayout />,
@@ -28,8 +30,18 @@ const Router = createBrowserRouter([
                 path:"/Login",
                 element: <Login/>
             }
+        ]   
+    },
+    {
+        element: <RegisterLayout/>,
+        children: [
+            {
+                path:"/Register",
+                element: <Register/>
+            }
         ]
     }
+  
 ])
 
 export default Router
