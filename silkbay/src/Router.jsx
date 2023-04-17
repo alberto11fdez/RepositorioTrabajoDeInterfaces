@@ -10,6 +10,7 @@ import RegisterLayout from "./layouts/RegisterLayout"
 import Register, {action as registerAction} from "./pages/register"
 
 import Cart from "./pages/Cart"
+import User from "./pages/User"
  
  
 const Router = createBrowserRouter([
@@ -35,6 +36,10 @@ const Router = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart />,
+            },
+            {
+                path: "/user",
+                element: <User/>
             }
         ]
     },

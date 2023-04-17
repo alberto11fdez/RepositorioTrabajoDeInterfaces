@@ -16,7 +16,7 @@ export default function UserBox({show, setShow}) {
         <div className="userBox-body">
             <p className='welcome'>¡Hola <span className='username-text'>{user.username}</span>!</p>
             <div className='options'>
-                <Link>
+                <Link to="/user">
                     Tu cuenta
                 </Link>
                 <Link>

@@ -1,0 +1,48 @@
+@import url("../assets/base.css");
+
+.user_data > .my_account{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+    text-align: left;
+
+}
+
+.user_data > .data_title{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+    text-align: left;
+}
+
+.user_data > .user_name{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+    text-align: left;
+
+}
+
+.user_data .user_icon{
+    height: 10.7rem;
+    width: 100%;
+    object-fit: contain;
+    margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+
+ .orders_title{
+    margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+    text-align: left;
+}
+.user_orders {
+    display: flex;
+    column-gap: 2rem;
+    margin-top: 2rem;
+    margin-left: 30px;
+
+}
+
