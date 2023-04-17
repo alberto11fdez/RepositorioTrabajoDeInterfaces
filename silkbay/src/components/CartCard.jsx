@@ -42,7 +42,7 @@ export default function CartCard({ purchase, onRemove, onItemsChange}) {
 					<label htmlFor="items-input">Items</label>
 					<input id="items-input" pattern="^[0-9]*$" minLength={0} maxLength={100} value={itemsCount} onChange={onItemsCountChange} />
 
-					<p className="product-price">{product.price}€</p>
+					<p className="product-price">{product.price * itemsCount}€</p>
 				</div>
                 <div className="bottom-controls">
                     <button className="remove-button" onClick={() => onRemove(purchase.id)}>
