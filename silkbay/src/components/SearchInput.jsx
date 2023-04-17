@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useDebounce } from '../utils/hooks';
 import { getProducts } from '../utils/db';
 import { useEffect } from 'react';
+import Overlay from './Overlay';
  
 
 const MOCK_SEARCHES = [
@@ -52,8 +53,7 @@ export default function SearchInput() {
 
   return (
     <>
-     { focus && (<div onClick={() => exitSearch()} className='search-overlay'>
-      </div>)}
+      <Overlay onClick={() => exitSearch()} show={focus}/>
       <div className="search-wrapper">
         <div className='search-input-container'>
           <input onKeyDown={onKey} onFocus={() => setFocus(true)} type="text" placeholder='¿Qué estás buscando?' className='search-input' value={searchText} onChange={(ev) => setSearchText(ev.target.value)}/>

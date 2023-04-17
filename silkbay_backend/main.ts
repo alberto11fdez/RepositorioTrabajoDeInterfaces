@@ -1,13 +1,15 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import bodyParser from "body-parser";
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 const server = express();
 
 const port = 3000;
 const prisma = new PrismaClient();
 server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({extended: true}));
 server.use(cors())
+
 server.get("/api/products", async (request, response)  => {
     const queryOptions:Prisma.ProductFindManyArgs = {};
     if(request.query.limit !== undefined && typeof request.query.limit === "string"){
@@ -63,6 +65,7 @@ server.route("/api/user").get(async (request, response) => {
     }
     response.status(200).json(user)
 }).post(async (request, response) => {
+   
     const {username, password, email=""} = request.body;
     const result = await prisma.user.create({
         data: {
@@ -74,7 +77,25 @@ server.route("/api/user").get(async (request, response) => {
     response.status(200).json(result);
 });
 
+server.route("/api/user/check").post(async (request, response) => {
+    const {username} = request.body;   
 
+    if (username === undefined || username === ""){
+        response.status(404).json({errorMsg: "Bad username"})
+        return;
+    }
+    const userCount = await prisma.user.count({
+        where: {
+            username: {
+                equals: username
+            }
+        }
+    })
+ 
+    const isTaken = userCount > 0;
+    response.status(200).json({isTaken});
+ 
+})
 
 server.listen(port, () => {
     console.log(`listening on http://localhost:${port}`)

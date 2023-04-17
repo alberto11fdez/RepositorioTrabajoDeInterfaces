@@ -1,14 +1,14 @@
 import {createBrowserRouter, Navigate} from "react-router-dom"
 import Error from "./Error"
 import DefaultLayout from "./layouts/DefaultLayout"
-import Home from "./pages/Home"
-import Login from "./pages/Login"
+import Home, {loader as homeLoader} from "./pages/Home"
+import Login, {action as loginAction} from "./pages/Login"
 import AuthLayout from "./layouts/AuthLayout"
-import Detail, {loader as DetailLoader} from "./pages/Detail"
+import Detail, {loader as detailLoader} from "./pages/Detail"
  
 import RegisterLayout from "./layouts/RegisterLayout"
-import Register from "./pages/register"
- 
+import Register, {action as registerAction} from "./pages/register"
+
 import Cart from "./pages/Cart"
  
  
@@ -23,12 +23,13 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/home",
-                element: <Home/>
+                element: <Home/>,
+                loader: homeLoader
             },
             {
                 path: "products/:productId",
                 element: <Detail/>,
-                loader: DetailLoader,
+                loader: detailLoader,
             },
 
             {
@@ -42,7 +43,8 @@ const Router = createBrowserRouter([
         children: [
             {
                 path:"/Login",
-                element: <Login/>
+                element: <Login/>,
+                action: loginAction
             }
         ]   
     },
@@ -50,8 +52,9 @@ const Router = createBrowserRouter([
         element: <RegisterLayout/>,
         children: [
             {
-                path:"/Register",
-                element: <Register/>
+                path:"/register",
+                element: <Register/>,
+                action: registerAction,
             }
         ]
     }

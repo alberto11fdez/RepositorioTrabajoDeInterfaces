@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "ts-node main.ts",
+		"start": "npx prisma migrate deploy && npx prisma generate && ts-node main.ts",
 		"seed": "ts-node seed.ts",
 		"dev": "nodemon main.ts"
 	},

@@ -65,7 +65,6 @@ export async function getAllProducts() {
 	if (res.status !== 200) {
 		return [];
 	}
-
 	return await res.json();
 }
 
@@ -102,5 +101,46 @@ export async function getUser(username) {
 	if (res.status !== 200) {
 		return undefined;
 	}
+	return await res.json();
+}
+
+/**
+ * An async function that checks if an username has been taken
+ *
+ * @param {string} username the username to compare
+ * @returns {Promise<boolean>} the result of the check
+ */
+export async function checkUsernameTaken(username) {
+	const res = await fetch(api_url("user/check"), {
+		body: JSON.stringify({ username }),
+		method: "post",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	if (res.status !== 200) {
+		return false;
+	}
+	const json = await res.json();
+	return json.isTaken;
+}
+/**
+ * An async function that creates a user
+ * @param {FormData} userData the form encoded user data
+ * @returns {Promise<User>} the user that was created
+ */
+export async function createUser(userData) {
+	const res = await fetch(api_url("user"), {
+		method: "post",
+		body: JSON.stringify(Object.fromEntries(userData)),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	if (res.status !== 200) {
+		throw Error("Something happened while creating the user");
+	}
+
 	return await res.json();
 }

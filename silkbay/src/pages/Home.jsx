@@ -6,7 +6,7 @@ import { useCartHelpers } from '../contexts/cartContext'
 import { CATEGORY, getAllProducts } from '../utils/db'
 import "./Home.css"
 import starsIcon from "../assets/stars.png";
-import { Link, useLocation, useSearchParams } from 'react-router-dom'
+import { Link, useActionData, useLoaderData, useLocation, useNavigation, useSearchParams } from 'react-router-dom'
 import { useAuthHelpers, useUser } from '../contexts/AuthContext'
  
 
@@ -17,6 +17,9 @@ export const JEWELRY = "Joyeria";
 
 const FILTERS = [ALL, CLOTHES, TECH, JEWELRY];
 
+export async function loader({request, response}){
+  return "";
+}
 export default function Home() {
   /**
    * @type {[import('../utils/db').Product[], React.Dispatch<import('../utils/db').Product>]} state
@@ -34,16 +37,11 @@ export default function Home() {
   
   const {search} = useLocation();
   const {setUser} = useAuthHelpers();
-
+ 
+ 
 
   useEffect(() => {
-      setUser({
-        username: "dev",
-        id: "1",
-        name:"developer",
-        password: "123password"
-      })
-
+ 
       getAllProducts().then((products) => {
           setProducts(products)
       })

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Modal.css"
 import iconX from "../assets/icon-x.png";
+import Overlay from './Overlay';
 
 /**
  * Hook for modal usage
@@ -16,8 +17,11 @@ export default function Modal({show, setShow, image, title, buttons}) {
         return
     }
   return (
-    <div className="overlay">
+
+    <>
+    <Overlay show={true} onClick={() => setShow(false)}/>
         <div className="modal-wrapper">
+            
             <button className='x-button' onClick={() => setShow(false)}><img src={iconX} alt="X button" /></button>
             <div className='modal-body'>
                 <div className='modal-header'>
@@ -31,6 +35,7 @@ export default function Modal({show, setShow, image, title, buttons}) {
                 </div>
             </div>
         </div>
-    </div>
+    </>
+
   )
 }

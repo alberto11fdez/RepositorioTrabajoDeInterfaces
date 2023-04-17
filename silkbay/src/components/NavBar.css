@@ -25,6 +25,7 @@
 .logging > .user-icon-container{
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .user-icon-container > .user-icon{

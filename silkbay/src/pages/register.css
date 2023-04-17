@@ -29,19 +29,24 @@
     width: 50%;
     padding-bottom: 6%;
 }
-h2{
+.section1 h2{
     font-size: var(--text-display);
     text-align: center;
-    color: var(--white);
     font-weight: 700;
+    color: var(--white)
+}
+
+h2{
+    color: var(--black);
 }
 .title-register-banner{
     color: var(--secondary-alt);
     font-weight: 700;
 }
 .Logo_SilkBay_Icon{
-    width: 15%;
-    padding-bottom: 3%;
+    width: 8.375rem;
+    height: 8.375rem;
+    object-fit: contain;
 }
 .Ingresar{
     color: var(--black);
@@ -50,4 +55,27 @@ h2{
 p{
     text-align: center;
     font-size: var(--text-lg);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.form .form-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form .form-footer a{
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.error{
+    color: var(--alternative);
 }

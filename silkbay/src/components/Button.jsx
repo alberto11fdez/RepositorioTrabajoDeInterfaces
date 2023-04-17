@@ -19,7 +19,7 @@ const buttonStyles = {
     cursor: "pointer",
 }
 
-export default function Button({onClick, type, children=[], text, styles={}}) {
+export default function Button({type, children=[], text, styles={}, ...props}) {
   let variant;
     switch(type){
         case "primary":
@@ -37,7 +37,7 @@ export default function Button({onClick, type, children=[], text, styles={}}) {
     }
 
   return (
-    <button onClick={onClick} style={{...buttonStyles,...styles, ...variant}}>
+    <button style={{...buttonStyles,...styles, ...variant}} {...props}>
         { ...children}
         {text}
     </button> 

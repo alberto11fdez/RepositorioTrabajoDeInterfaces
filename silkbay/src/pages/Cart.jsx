@@ -68,7 +68,7 @@ export default function Cart() {
 				<div className="purchase-brief">
 					<div className="total-info">
 						<p>Total:</p>
-            <p>{purchases.reduce((sum, next) => sum + next.product.price, 0)} €</p>
+            <p>{purchases.reduce((sum, next) => sum + next.product.price * next.items, 0)} €</p>
 					</div>
           <Button type="secondary" styles={{width: "10rem", height: "2.2rem", padding: "0", fontSize: "1.15rem" }}>
             Pagar

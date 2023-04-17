@@ -1,14 +1,13 @@
 import React from 'react'
-const style = {
-    padding: '2%',
-    margin: '3%',
-    width: '50%'
-}
-
-export default function Input(props) {
+import "./Input.css";
  
+export default function Input({icon, mutator,...props}) {
+
     return (
-    <input type={props.type} placeholder={props.placeholder} style={style}/>
+      <div className='input-wrapper'>
+        <input className='default-input' onChange={(ev) => mutator(ev.target.value)} {...props}/>
+        <img src={icon} alt="input icon" className='input-icon'/>
+      </div>
     
   )
 }
