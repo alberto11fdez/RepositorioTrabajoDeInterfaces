@@ -27,17 +27,17 @@ export default function Register(){
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [errorText, setErrorText] = useState("");
-    const [usernameChecked, setUsernameChecked] = useState(true);
+    const [usernameChecked, setUsernameChecked] = useState(false);
     const submit = useSubmit();
-    const user = useActionData();
+    const actionData = useActionData();
     const {setUser} = useAuthHelpers();
     const navigate = useNavigate();
     useEffect(() => {
-        if(user){
-            setUser(user);
+        if(actionData){
+            setUser(actionData.user);
             navigate("/")
         }
-    }, [user])
+    }, [actionData])
     async function checkUsername(){
         if (username.trim().length == 0) return;
         const isTaken = await checkUsernameTaken(username);
@@ -60,13 +60,16 @@ export default function Register(){
 
         if (!passwordRegex.test(password)){
             setErrorText("La contraseña debe de contener 8 digitos, almenos 1 letra y almenos 1 número")
+            return;
         }
 
         if(password !== repeatPassword){
             setErrorText("Las contraseñas tienen que coincidir")
+            return;
         }
         if (!usernameChecked){
             setErrorText("El nombre de usuario ya está tomado");
+            return;
         }
         submit(ev.currentTarget)
     }

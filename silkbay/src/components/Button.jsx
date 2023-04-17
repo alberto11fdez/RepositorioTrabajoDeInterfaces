@@ -37,7 +37,7 @@ export default function Button({type, children=[], text, styles={}, ...props}) {
     }
 
   return (
-    <button style={{...buttonStyles,...styles, ...variant}} {...props}>
+    <button style={{...buttonStyles,...variant, ...styles,}} {...props}>
         { ...children}
         {text}
     </button> 

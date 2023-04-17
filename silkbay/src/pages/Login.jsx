@@ -77,15 +77,16 @@ export default function Login() {
               {actionData && "error" in actionData && (<p className='error'>El nombre de usuario o la contraseña son incorrectos</p>)}
               <Input icon={UserIcon} value={username} mutator={setUsername} type="text" placeholder="Nombre de Usuario" name="username"/>
               <Input icon={LockIcon} value={password} mutator={setPassword} type="password" placeholder="Contraseña" name="password"/>
-              <div className="form-footer">
+               <Button type="secondary">
+                Ingresar
+               </Button>
+
+               <div className="form-footer">
                         <small>¿No tienes cuenta?</small>
                         <Link to="/register" className='sign-link'>
                             Crear cuenta
                         </Link>
                     </div>
-               <Button type="secondary">
-                Ingresar
-               </Button>
             </Form>
         </div>
     </>

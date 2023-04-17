@@ -4,6 +4,7 @@ import {Link, useLoaderData} from "react-router-dom";
 import Button  from "../components/Button";
 import "./Detail.css"
 import { CLOTHES, JEWELRY, TECH } from './Home';
+import { useCartHelpers } from '../contexts/CartContext';
 
 export async function loader({params}){
     const product = await getSingleProduct(params.productId);
@@ -18,7 +19,8 @@ export default function Detail() {
    * @type {{product: import('../utils/db').Product}}
    */
   const  {product} = useLoaderData();
-  
+  const {addCartProduct, isProductInCart, removeProductFromCart} = useCartHelpers();
+  const isInCart = isProductInCart(product.id);
   let filterRoute = ""
 
   switch (product.category){
@@ -64,7 +66,11 @@ export default function Detail() {
             <h1>{product.title}</h1>
             <div className='purchase-info'>
               <p>{product.price}€</p>
-              <Button type="secondary" text="Comprar" styles={{padding: ".5rem 1rem"}}/>
+              {isInCart ? 
+              <Button onClick={() => removeProductFromCart(product.id)} styles={{backgroundColor: "gray"}} text="Remover"/> 
+              : 
+              <Button onClick={() => addCartProduct(product)} type="secondary" text="Comprar" styles={{padding: ".5rem 1rem"}}/>}
+              
             </div>
           <p className='product-description'>{product.description}</p>
         </div>
