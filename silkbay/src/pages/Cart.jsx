@@ -4,37 +4,70 @@ import CartCard from "../components/CartCard";
 import Card from "../components/Card";
 import Button from "../components/Button"
 import leafAnim from "../assets/empty-card.gif";
+import partyImage from "../assets/party.png";
 import "./Cart.css";
 import { useState } from "react";
-import { getProducts } from "../utils/db";
+import { createPurchase, getProducts } from "../utils/db";
 import { useCartHelpers, useCartPurchases } from "../contexts/CartContext";
-const MOCK_PURCHASE = {
-	items: 1,
-	product: {
-		id: 1,
-		title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-		price: 109.95,
-		description:
-			"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-		category: "men's clothing",
-		image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-	},
-	id: 1,
-};
+import { Link, useNavigate, useSubmit } from "react-router-dom";
+import { useUser } from "../contexts/AuthContext";
+import Modal, { useModal } from "../components/Modal";
+
+export async function action({request}){
+  const data = await request.text();
+  console.log(data);
+  return "";
+}
 
 export default function Cart() {
 
   const purchases = useCartPurchases();
-  const {removeProductFromCart, changePurchaseItemCount} = useCartHelpers();
+  const user = useUser();
+  const {removeProductFromCart, changePurchaseItemCount, emptyCart} = useCartHelpers();
   // const purchases = []
   const [relatedProducts, setRelatedProducts] = useState([])
-
+  const [show, setShow] = useModal();
+  const navigate = useNavigate();
   useEffect(() => {
       getProducts().then((products) => setRelatedProducts(products));
   }, [])
+  function submitPurchase(){ 
+    const purchaseItems = purchases.map((purchase) => {
+      return {
+         count: purchase.items,
+         productId: purchase.product.id
+      }
+    })
+    const finalAmount = purchases.reduce((sum, next) => sum + next.product.price * next.items, 0);
+    const submittedPurchase = {
+      userId: user.id,
+      purchaseItems,
+      amount: finalAmount
+    }
+    createPurchase(submittedPurchase).then((res) => {
+        emptyCart();
+        setShow(true);
+    });
+
+  }
+  function onPurchaseRemove(purchaseId){
+      removeProductFromCart(purchaseId);
+  }
+
+  function onPurchaseCountChange(purchaseId, count){
+      changePurchaseItemCount(purchaseId, count)
+  }
+
   if (purchases.length === 0){
     return (
       <div className="cart-page">
+        <Modal show={show} setShow={setShow} title="¡La compra se ha realizado con éxito!" image={partyImage} buttons={[
+        <Link to="/home">
+          <Button>
+            Seguir comprando
+          </Button>
+        </Link>
+      ]}/>
         <img className="empty-animation" src={leafAnim} alt="" />
         <p className="empty-text">Parece que no hay nada en tu carrito... <br />
                             ¡Explora nuestra selección de productos destacados!</p>
@@ -45,16 +78,9 @@ export default function Cart() {
     )
   }
 
-  function onPurchaseRemove(purchaseId){
-      removeProductFromCart(purchaseId);
-  }
-
-  function onPurchaseCountChange(purchaseId, count){
-      changePurchaseItemCount(purchaseId, count)
-  }
-
 	return (
 		<div className="cart-page">
+      
 			<div className="cart-page-wrapper">
 				<div className="cart-header">
 					<h1>Revisa tus compras</h1>
@@ -70,7 +96,7 @@ export default function Cart() {
 						<p>Total:</p>
             <p>{purchases.reduce((sum, next) => sum + next.product.price * next.items, 0)} €</p>
 					</div>
-          <Button type="secondary" styles={{width: "10rem", height: "2.2rem", padding: "0", fontSize: "1.15rem" }}>
+          <Button onClick={submitPurchase} type="secondary" styles={{width: "10rem", height: "2.2rem", padding: "0", fontSize: "1.15rem" }}>
             Pagar
           </Button>
 				</div>

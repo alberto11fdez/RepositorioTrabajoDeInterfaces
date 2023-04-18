@@ -9,8 +9,9 @@ import Detail, {loader as detailLoader} from "./pages/Detail"
 import RegisterLayout from "./layouts/RegisterLayout"
 import Register, {action as registerAction} from "./pages/register"
 
-import Cart from "./pages/Cart"
+import Cart, {action as cartAction} from "./pages/Cart"
 import User from "./pages/User"
+import Purchases, {loader as purchasesLoader} from "./pages/Purchases"
  
  
 const Router = createBrowserRouter([
@@ -36,10 +37,16 @@ const Router = createBrowserRouter([
             {
                 path: "/cart",
                 element: <Cart />,
+                action: cartAction,
             },
             {
                 path: "/user",
                 element: <User/>
+            },
+            {
+                path: "/user/purchases",
+                element: <Purchases />,
+                loader: purchasesLoader,
             }
         ]
     },

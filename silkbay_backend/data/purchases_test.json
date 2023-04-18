@@ -1,0 +1,78 @@
+[
+	{
+		"id": 0,
+		"user": 1,
+		"amount": 230.42,
+		"purchaseItems": [
+			{
+				"count": 1,
+				"product": 5
+			},
+			{
+				"count": 2,
+				"product": 9
+			},
+			{
+				"count": 5,
+				"product": 7
+			}
+		]
+	},
+	{
+		"id": 4,
+		"user": 1,
+		"amount": 223.3,
+		"purchaseItems": [
+			{
+				"count": 2,
+				"product": 1
+			},
+			{
+				"count": 2,
+				"product": 2
+			},
+			{
+				"count": 1,
+				"product": 3
+			}
+		]
+	},
+	{
+		"id": 1,
+		"user": 2,
+		"amount": 523.32,
+		"purchaseItems": [
+			{
+				"count": 1,
+				"product": 4 
+			},
+			{
+				"count": 1,
+				"product": 5 
+			},
+			{
+				"count": 5,
+				"product": 2 
+			}
+		]
+	},
+	{
+		"id": 2,
+		"user": 3,
+		"amount": 100.23,
+		"purchaseItems": [
+			{
+				"count": 2,
+				"product": 10 
+			},
+			{
+				"count": 1,
+				"product": 13 
+			},
+			{
+				"count": 3,
+				"product": 12
+			}
+		]
+	}
+]

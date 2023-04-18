@@ -14,7 +14,13 @@ export function useAuthHelpers(){
 
 
 export default function AuthContext({children}) {
-    const [user, setUser] = useState(null);
+
+    /** @type {[import('../utils/db').User, React.Dispatch<import('../utils/db').User>]} */
+    // const [user, setUser] = useState(null);
+    const [user, setUser] = useState({
+        id: 11,
+        username: "Oasu"
+    });
 
     function isUserLogged(){
         const user  = useUser()

@@ -36,6 +36,22 @@ export const CATEGORY = {
  * @property {Name} name
  */
 
+/**
+ * A purchaseItem
+ * @typedef {object} PurchaseItem
+ * @property {number} id
+ * @property {Product} product
+ * @property {number} count
+ */
+/**
+ * A purchase
+ * @typedef {object} Purchase
+ * @property {number} id
+ * @property {number} amount
+ * @property {Date} createdAt
+ * @property {PurchaseItem[]} PurchaseItems
+ */
+
 const API_URL = "http://localhost:3000/api/";
 
 /**
@@ -143,4 +159,46 @@ export async function createUser(userData) {
 	}
 
 	return await res.json();
+}
+
+/**
+ * An async function that creates a purchase
+ * @param {Purchase} purchase the purchase to submit
+ * @returns {Purchase} the purchase created
+ */
+
+export async function createPurchase(purchase) {
+	const res = await fetch(api_url("purchase"), {
+		method: "post",
+		body: JSON.stringify(purchase),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	if (!res.ok) {
+		throw Error("Something happend while creating the purchase");
+	}
+
+	return await res.json();
+}
+
+/**
+ * An async function that gets all the purchases of a single user
+ * @param {number} userId the user id
+ * @returns {Purchase[]} all the purchases of the user
+ */
+export async function getPurchases(userId) {
+	const res = await fetch(api_url("purchase/" + userId));
+
+	if (!res.ok) {
+		return [];
+	}
+
+	const jsonData = await res.json();
+
+	return jsonData.map((item) => ({
+		...item,
+		createdAt: new Date(item.createdAt),
+	}));
 }

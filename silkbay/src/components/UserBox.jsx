@@ -16,10 +16,10 @@ export default function UserBox({show, setShow}) {
         <div className="userBox-body">
             <p className='welcome'>¡Hola <span className='username-text'>{user.username}</span>!</p>
             <div className='options'>
-                <Link to="/user">
+                <Link to="/user" onClick={() => setShow(false)}>
                     Tu cuenta
                 </Link>
-                <Link>
+                <Link to="/user/purchases" onClick={() => setShow(false)}>
                     Tus pedidos
                 </Link>
             </div>

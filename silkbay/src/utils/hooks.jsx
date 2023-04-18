@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import { useEffect } from "react";
 import { useRef } from "react"
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../contexts/AuthContext";
 
 export function useTimeout(callback, delay){
     const callBackref = useRef(callback);
@@ -34,4 +36,15 @@ export function useDebounce(callback, delay, dependencies){
     useEffect(clear, []);
 
     return {reset, clear};
+}
+export function useRestrictLogin(){
+    const user = useUser();
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(user == null){
+            navigate("/home");
+        }  
+    }, [user])
+
+    return user == null;
 }

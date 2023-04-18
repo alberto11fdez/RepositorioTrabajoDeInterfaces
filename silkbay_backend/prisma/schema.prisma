@@ -19,18 +19,29 @@ model User {
 }
 
 model Product {
-  id          Int        @id @default(autoincrement())
-  title       String
-  price       Float
-  description String
-  category    String
-  image       String
-  purchases   Purchase[]
+  id           Int            @id @default(autoincrement())
+  title        String
+  price        Float
+  description  String
+  category     String
+  image        String
+  PurchaseItem PurchaseItem[]
 }
 
 model Purchase {
-  id       Int       @id @default(autoincrement())
-  user     User      @relation(fields: [userId], references: [id])
-  userId   Int
-  products Product[]
+  id            Int            @id @default(autoincrement())
+  user          User           @relation(fields: [userId], references: [id])
+  userId        Int
+  amount        Float
+  createdAt     DateTime       @default(now())
+  PurchaseItems PurchaseItem[]
+}
+
+model PurchaseItem {
+  id         Int      @id @default(autoincrement())
+  purchase   Purchase @relation(fields: [purchaseId], references: [id])
+  count      Int
+  product    Product  @relation(fields: [productId], references: [id])
+  purchaseId Int
+  productId  Int
 }
