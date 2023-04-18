@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import TrashCan from "../assets/icon-delete.png";
 import "./CartCard.css"
+import Button from '../components/Button'
 /**
  * A purchase
  * @typedef {Object} purchase
@@ -28,6 +29,13 @@ export default function CartCard({ purchase, onRemove, onItemsChange}) {
 			onItemsChange(purchase.id, number)
 		}
 	}
+	function onButtonClick(number) {
+		if(number < 1) onRemove(purchase.id);
+		if (number > 100) return;
+		setItemsCount(number);
+		onItemsChange(purchase.id, number)
+		
+	}
     
 	return (
 		<div className="cartCard">
@@ -40,7 +48,9 @@ export default function CartCard({ purchase, onRemove, onItemsChange}) {
 			<div className="controls">
 				<div className="top-controls">
 					<label htmlFor="items-input">Items</label>
+					<Button type={"secondary"} styles={{width: "2.5rem", height: "2rem", padding: "0", fontSize: "1rem" }} onClick={() => onButtonClick(itemsCount-1)}> - </Button>
 					<input id="items-input" pattern="^[0-9]*$" minLength={0} maxLength={100} value={itemsCount} onChange={onItemsCountChange} />
+					<Button type={"secondary"} styles={{width: "2.5rem", height: "2rem", padding: "0", fontSize: "1rem" }} onClick= {() => onButtonClick(itemsCount+1)}> + </Button>
 
 					<p className="product-price">{product.price * itemsCount}€</p>
 				</div>

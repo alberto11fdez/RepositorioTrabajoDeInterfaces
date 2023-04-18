@@ -11,6 +11,7 @@ import Register, {action as registerAction} from "./pages/register"
 
 import Cart from "./pages/Cart"
 import User from "./pages/User"
+import Help from "./pages/Help"
  
  
 const Router = createBrowserRouter([
@@ -40,6 +41,10 @@ const Router = createBrowserRouter([
             {
                 path: "/user",
                 element: <User/>
+            },
+            {
+                path: "/help",
+                element: <Help/>
             }
         ]
     },
