@@ -11,6 +11,7 @@ import Register, {action as registerAction} from "./pages/register"
 
 import Cart, {action as cartAction} from "./pages/Cart"
 import User from "./pages/User"
+import Help from "./pages/Help"
 import Purchases, {loader as purchasesLoader} from "./pages/Purchases"
  
  
@@ -42,6 +43,10 @@ const Router = createBrowserRouter([
             {
                 path: "/user",
                 element: <User/>
+            },
+            {
+                path: "/help",
+                element: <Help/>
             },
             {
                 path: "/user/purchases",
