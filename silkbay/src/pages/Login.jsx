@@ -65,11 +65,11 @@ export default function Login() {
     <>
         <div className='section1'>
             <img className='Login_Banner' src= {Login_Banner} alt=""/>
-            <h2>¡Bienvenido otra vez<br/> a <span className='title-login-banner'>Silk Bay!</span></h2>
+            <h1>¡Bienvenido otra vez<br/> a <span className='title-login-banner'>Silk Bay!</span></h1>
         </div>
         <div className='section2'>
             <img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/>
-            <h2 className='Ingresar'>Ingresar</h2>
+            <h2 className='login-title'>Ingresar</h2>
             <p>¡Ingresa para disfrutar de todas las <br/> funciones de SilkBay</p>
 
             <Form className='form' method='post' action='/login' onSubmit={onSubmit}>

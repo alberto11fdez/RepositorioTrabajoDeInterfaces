@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import help from "../pages/Help"
 
 const styles = {
@@ -23,7 +24,7 @@ export default function Footer() {
     <div style={styles}>
         <p style={textStyle}>Silkbay® 2023</p>
         <p style={textStyle}>All Rights Reserved</p>
-        <a href="../Help">¿Necesitas ayuda?</a>
+        <Link to="/help">¿Necesitas ayuda?</Link>
     </div>
     
   )

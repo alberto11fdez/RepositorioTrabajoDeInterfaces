@@ -12,6 +12,7 @@ import { useCartHelpers, useCartPurchases } from "../contexts/CartContext";
 import { Link, useNavigate, useSubmit } from "react-router-dom";
 import { useUser } from "../contexts/AuthContext";
 import Modal, { useModal } from "../components/Modal";
+import Heading from "../components/Heading";
 
 export async function action({request}){
   const data = await request.text();
@@ -83,8 +84,7 @@ export default function Cart() {
       
 			<div className="cart-page-wrapper">
 				<div className="cart-header">
-					<h1>Revisa tus compras</h1>
-					<span className="cart-divisor" />
+					<Heading>Revisa tus compras</Heading>
 				</div>
 				<div className="purchases">
 					{

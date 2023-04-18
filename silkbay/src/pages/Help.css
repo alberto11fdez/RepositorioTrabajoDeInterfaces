@@ -27,12 +27,12 @@
 	padding-left: 5rem;
 	padding-right: 5rem;
 }
-p{
+.help-page p{
 	font-size: var(--text-sm);
 	color: var(--black);
 }
 
-img{
+.help-page img{
 	width: 80%;
 }
 
@@ -40,11 +40,11 @@ img{
 	margin-bottom: 1rem;
 }
 
-span{
+.help-page span{
 	font-size: var(--text-sm);
 	color: var(--primary);
 }
 
-h2{
+.help-page h2{
 	color: var(--secondary);
 }

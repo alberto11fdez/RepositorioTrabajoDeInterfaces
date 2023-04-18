@@ -48,7 +48,7 @@ export default function Register(){
     useDebounce(checkUsername, 600, [username]);
     function onSubmit(ev){
         ev.preventDefault();
-
+        checkUsername();
         if (username === ""){
             setErrorText("Por favor indique un nombre de usuario")
             return;

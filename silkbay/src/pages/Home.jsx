@@ -8,6 +8,7 @@ import "./Home.css"
 import starsIcon from "../assets/stars.png";
 import { Link, useActionData, useLoaderData, useLocation, useNavigation, useSearchParams } from 'react-router-dom'
 import { useAuthHelpers, useUser } from '../contexts/AuthContext'
+import Heading from '../components/Heading'
  
 
 export const ALL = "Todo"
@@ -96,7 +97,7 @@ export default function Home() {
         </Link>
         </>
       )}/>
-      <h1>Nuestra selección de productos</h1>
+      <Heading>Nuestra selección de productos</Heading>
       
       <div className="content-wrapper">
         <div className='filters'>

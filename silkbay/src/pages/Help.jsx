@@ -6,10 +6,12 @@ import carrito from "../assets/ir-carrito.png"
 import borrar_home from "../assets/borrar-home.png"
 import borrar_carrito from "../assets/borrar-carrito.png"
 import carrito_pagar from "../assets/comprar_pagar.png"
+import { ScrollRestoration } from 'react-router-dom'
 
 export default function Help(){
     return (
         <div className="help-page">
+            <ScrollRestoration />
             <h1 className="page-title"> ¿CÓMO PODEMOS AYUDARTE?</h1>
             <div className="help-container">
                 <h3>¿Cómo buscar un producto?</h3>

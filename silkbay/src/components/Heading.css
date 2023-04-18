@@ -1,0 +1,16 @@
+@import url("../assets/base.css");
+
+.heading-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: .5rem;
+    padding-left: 2rem;
+
+}
+
+.heading-divider{
+    width: 90%;
+    height: .1rem;
+    background-color: var(--primary);
+}
