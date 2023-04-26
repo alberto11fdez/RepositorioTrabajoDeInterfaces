@@ -115,7 +115,7 @@ export default function Home() {
                 </div>
               ) :
               (
-                <h3>No hay productos para mostrar</h3>
+                <h2>No hay productos para mostrar</h2>
               )
             }
            

@@ -25,7 +25,7 @@ export default function Card({onAddHook, ...product}) {
   return (
     <div className='card'>
         <Link to={`/products/${product.id}`}>
-            <img src={product.image} alt="Card image" className='card-img' />
+            <img src={product.image} alt={product.title} className='card-img' />
         </Link>
         <p className='card-title'>{formattedTitle}</p>
         <div className='card-bottom'>
@@ -41,8 +41,8 @@ export default function Card({onAddHook, ...product}) {
             ( 
               <button className='add-button' onClick={() => onAdd()}>
                 <p className='add-button-text'>Añadir</p>
-                <img src={cart} alt="cart icon" className='cart-icon' />
-                <img src={Arrow} alt="arrow icon" className='arrow-icon'/>
+                <img src={cart} alt="Icono con la imagen de un carrito" className='cart-icon' />
+                <img src={Arrow} alt="Icono con la imagen de una flecha" className='arrow-icon'/>
               </button>
             )
             }

@@ -52,7 +52,8 @@ export const CATEGORY = {
  * @property {PurchaseItem[]} PurchaseItems
  */
 
-const API_URL = "http://localhost:3000/api/";
+//const API_URL = "http://localhost:3000/api/";
+const API_URL = "https://grad-mix-updated-sc.trycloudflare.com/api/";
 
 /**
  * Get the api url

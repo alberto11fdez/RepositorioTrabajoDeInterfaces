@@ -23,7 +23,7 @@ export default function NavBar() {
 
   return (
     <div className='navbar'>
-      <Link to="/"><img src={logo} alt="Silkbay Logo" className='logo'/></Link>
+      <Link to="/"><img src={logo} alt="Silkbay Logo" className='logo' aria-roledescription='esteEsElLogo'/></Link>
       <SearchInput />
       {
         isLogged ?
