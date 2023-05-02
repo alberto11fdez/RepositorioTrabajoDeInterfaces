@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient, Product, PurchaseItem } from "@prisma/client";
+ 
 import bodyParser from "body-parser";
 import express, { response } from "express";
 import cors from "cors";
@@ -128,7 +129,6 @@ server.route("/api/purchase").post(async (request, response) => {
         }
     })
     response.status(200).json(createdPurchase);
-
 })
 server.route("/api/purchase/:userId").get(async (request, response) => {
     const userId = parseInt(request.params.userId);
@@ -156,6 +156,61 @@ server.route("/api/purchase/:userId").get(async (request, response) => {
     response.status(200).json(purchases);
 })  
 
+
+server.route("/api/session").get(async (request, response) => {
+        const ip = request.ip
+
+        const session = await prisma.session.findUnique({where: {ip}, include: {user: true}});
+        const today = new Date()
+ 
+        if(session == null){
+            response.status(404).json([]);
+            return;
+        }
+
+        if(session.expiresAt < today){
+            prisma.session.delete({
+                where: {
+                    ip
+                }
+            })
+            response.status(404).json([]);
+            return;
+        }
+
+        response.status(200).json(session);
+}).post(async (request, response) => {
+    const ip = request.ip
+    const userId = request.body.userId
+    try {
+        await prisma.session.delete({where: {
+            ip
+        }});   
+    } catch (e){
+        console.log("Session not found\n" + e);
+    }
+    const session = await prisma.session.create({
+        data: {
+            ip,
+            userId,
+        } 
+    })
+    response.status(200).json(session);
+}).delete(async (request, response) => {
+    const ip = request.ip;
+    try{
+    const result = await prisma.session.delete({where: {
+        ip
+    }});
+
+    if(result){
+        response.status(200).json({text: "Session deleted"});
+        return;
+    }
+    } catch(e){
+        response.status(404).json({text: "session not found"});
+    }
+})
 server.listen(port, () => {
     console.log(`listening on http://localhost:${port}`)
 })

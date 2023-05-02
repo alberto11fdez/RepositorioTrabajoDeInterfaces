@@ -39,10 +39,11 @@ export default function Card({onAddHook, ...product}) {
               )
             :
             ( 
-              <button className='add-button' onClick={() => onAdd()}>
-                <p className='add-button-text'>Añadir</p>
-                <img src={cart} alt="Icono con la imagen de un carrito" className='cart-icon' />
-                <img src={Arrow} alt="Icono con la imagen de una flecha" className='arrow-icon'/>
+              <button aria-label='Añadir producto al carrito' name='addButton' role="button" title='Añadir producto' className='add-button' onClick={() => onAdd()}>
+                <p className='visually-hidden'>Añadir producto al carrito</p>
+                <p className='add-button-text' aria-hidden="true">Añadir</p>
+                <img src={cart} alt="" className='cart-icon' aria-hidden="true"/>
+                <img src={Arrow} alt="arrow icon" className='arrow-icon' aria-hidden="true"/>
               </button>
             )
             }

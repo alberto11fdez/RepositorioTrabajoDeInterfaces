@@ -69,7 +69,7 @@ export default function Detail() {
               {isInCart ? 
               <Button onClick={() => removeProductFromCart(product.id)} styles={{backgroundColor: "gray"}} text="Remover"/> 
               : 
-              <Button onClick={() => addCartProduct(product)} type="secondary" text="Comprar" styles={{padding: ".5rem 1rem"}}/>}
+              <Button onClick={() => addCartProduct(product)} type="secondary" text="Añadir" styles={{padding: ".5rem 1rem"}}/>}
               
             </div>
           <p className='product-description'>{product.description}</p>

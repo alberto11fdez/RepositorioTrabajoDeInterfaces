@@ -11,6 +11,8 @@
     width: 61.063rem;
     position: relative;
 }
+
+ 
 .search-input-container{
     width: 61.063rem;
     height: 2.813rem;
@@ -54,4 +56,5 @@
     width: 100%;
     top: 102%;
     padding-left: .5rem;
+    z-index: 3;
 }

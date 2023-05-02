@@ -29,7 +29,7 @@ export default function NavBar() {
         isLogged ?
         (
           <div className='logging'>
-            <Overlay show={showUserBox}/>
+            <Overlay show={showUserBox} onClick={() => setShowUserBox(false)}/>
           <div className='user-icon-container'>
             <img src={userImage} alt="User image" className='user-icon'/>
             <button className='arrow-button' onClick={() => setShowUserBox(!showUserBox)}><img src={arrow} alt="arrow icon" /></button>

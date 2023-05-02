@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useEffect } from "react";
+import { useState } from "react";
 import { useRef } from "react"
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/AuthContext";
@@ -47,4 +48,32 @@ export function useRestrictLogin(){
     }, [user])
 
     return user == null;
+}
+
+/**
+ * 
+ * @param {(...any) => Promise} dbFunction is an async function that calls the backend
+ * 
+ * @returns {[boolean, {error: boolean, exception: any}, (any | any[])]} 
+ */
+export function useDB(dbFunction, ...args){
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState({
+        error: false,
+        exception: null,
+    });
+    const [data, setData] = useState(null);
+    
+    dbFunction(...args).then((val) => {
+        setData(val);
+    }).catch(err => {
+        setError({
+            error: true,
+            exception: err,
+        })
+    }).finally(() => {
+        setLoading(false);
+    })
+
+    return [loading, error, data];
 }

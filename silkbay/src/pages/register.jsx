@@ -8,7 +8,7 @@ import { Form, Link, redirect, useActionData, useNavigate, useSubmit } from 'rea
 import LockIcon from "../assets/icon-lock.png";
 import UserIcon from "../assets/icon-user.png";
 import { useDebounce } from '../utils/hooks'
-import { checkUsernameTaken, createUser } from '../utils/db'
+import { checkUsernameTaken, createSession, createUser } from '../utils/db'
 import { useAuthHelpers } from '../contexts/AuthContext'
 import { useEffect } from 'react'
  
@@ -16,6 +16,7 @@ export async function action({request, params}){
   
     const formData = await request.formData();
     const user = await createUser(formData);
+    await createSession(user.id);
     user.password = "";
     return {user};
 }

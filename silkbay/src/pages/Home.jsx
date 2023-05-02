@@ -90,7 +90,7 @@ export default function Home() {
           </Button>
         </Link>
         <span className='modal-divisor'/>
-        <Link to="/signup">
+        <Link to="/register">
         <Button type="alt"> 
             Crear cuenta          
         </Button>

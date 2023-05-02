@@ -52,7 +52,7 @@ export default function CartCard({ purchase, onRemove, onItemsChange}) {
 					<input id="items-input" pattern="^[0-9]*$" minLength={0} maxLength={100} value={itemsCount} onChange={onItemsCountChange} />
 					<Button type={"secondary"} styles={{width: "2.5rem", height: "2rem", padding: "0", fontSize: "1rem" }} onClick= {() => onButtonClick(itemsCount+1)}> + </Button>
 
-					<p className="product-price">{product.price * itemsCount}€</p>
+					<p className="product-price" role={"presentation"}>{product.price * itemsCount}€</p>
 				</div>
                 <div className="bottom-controls">
                     <button className="remove-button" onClick={() => onRemove(purchase.id)}>

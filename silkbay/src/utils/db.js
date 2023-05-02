@@ -9,6 +9,7 @@ export const CATEGORY = {
 	menSClothing: "men's clothing",
 	womenSClothing: "women's clothing",
 };
+
 /**
  * A product
  * @typedef {object} Product
@@ -52,8 +53,16 @@ export const CATEGORY = {
  * @property {PurchaseItem[]} PurchaseItems
  */
 
-//const API_URL = "http://localhost:3000/api/";
-const API_URL = "https://grad-mix-updated-sc.trycloudflare.com/api/";
+/**
+ * A session
+ * @typedef {object} Session
+ * @property {number} id
+ * @property {string} ip
+ * @property {User} user
+ * @property {Date} expiresAt
+ * @property {Date} createAt
+ */
+const API_URL = "http://localhost:3000/api/";
 
 /**
  * Get the api url
@@ -202,4 +211,57 @@ export async function getPurchases(userId) {
 		...item,
 		createdAt: new Date(item.createdAt),
 	}));
+}
+
+/**
+ * An async function that gets the current session, if there's one
+ * @returns {Promise<Session | null>}
+ */
+export async function getSession() {
+	const res = await fetch(api_url("session/"));
+
+	if (!res.ok) {
+		return null;
+	}
+	/** @type {Session} */
+	const jsonData = await res.json();
+	jsonData.createAt = new Date(jsonData.createAt);
+	jsonData.expiresAt = new Date(jsonData.expiresAt);
+	return jsonData;
+}
+/**
+ * Creates a session in the database
+ * @param {id} userId the id of the user linked to the session
+ * @returns {Promise<Session>} the created session
+ */
+export async function createSession(userId) {
+	const res = await fetch(api_url("session/"), {
+		method: "post",
+		body: JSON.stringify({ userId }),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	if (!res.ok) {
+		return null;
+	}
+	/** @type {Session} */
+	const jsonData = await res.json();
+	jsonData.createAt = new Date(jsonData.createAt);
+	jsonData.expiresAt = new Date(jsonData.expiresAt);
+	return jsonData;
+}
+
+/**
+ * An async function that drops a session
+ *
+ * @returns {Promise<boolean>} True if the session was dropped, false otherwise
+ */
+export async function dropSession() {
+	const res = await fetch(api_url("session"), {
+		method: "delete",
+	});
+
+	return res.ok;
 }

@@ -20,7 +20,7 @@ export default function Modal({show, setShow, image, title, buttons}) {
 
     <>
     <Overlay show={true} onClick={() => setShow(false)}/>
-        <div className="modal-wrapper">
+        <div className="modal-wrapper" role="dialog" aria-label="Tienes que registrarte">
             
             <button className='x-button' onClick={() => setShow(false)}><img src={iconX} alt="X button" /></button>
             <div className='modal-body'>

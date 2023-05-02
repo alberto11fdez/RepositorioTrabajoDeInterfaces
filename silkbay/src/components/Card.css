@@ -48,6 +48,7 @@
     border: none;
     padding: .1rem .5rem;
     border-radius: 15px;
+    position: relative;
 }
 
 .card > .card-bottom > .add-button > .add-button-text{
