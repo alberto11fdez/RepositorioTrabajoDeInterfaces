@@ -24,6 +24,20 @@
  
     
 }
+@media screen and (max-width: 768px) {
+    .search-wrapper{
+        width: 15.063rem;
+    }
+    .search-input-container{
+        width: 18.063rem;
+        
+    }
+    .search-button{
+        width: 20%;
+    }
+    
+    
+}
 
 .search-input{
     width: 90%;
@@ -39,7 +53,7 @@
 .search-button{
     background-color: var(--primary);
     height: 100%;
-    width: 10%;
+    width: 20%;
     border: none;
     cursor: pointer;
 

@@ -13,6 +13,7 @@ import Cart, {action as cartAction} from "./pages/Cart"
 import User from "./pages/User"
 import Help from "./pages/Help"
 import Purchases, {loader as purchasesLoader} from "./pages/Purchases"
+import Media from "react-media"
  
  
 const Router = createBrowserRouter([

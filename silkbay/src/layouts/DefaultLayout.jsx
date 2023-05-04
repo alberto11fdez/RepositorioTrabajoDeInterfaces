@@ -2,6 +2,8 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
+import Media from 'react-media'
+import NavBarMobile from '../components/NavBarMobile'
 
 const outletStyle = {
   minHeight: "100%",
@@ -16,7 +18,12 @@ const mainStyle = {
 export default function DefaultLayout() {
   return (
     <main style={mainStyle}>
+      <Media query="(min-width: 768px)">
       <NavBar/>
+      </Media>
+      <Media query="(max-width: 768px)">
+      <NavBarMobile/>
+      </Media>
       <div style={outletStyle}>
         <Outlet />
       </div>

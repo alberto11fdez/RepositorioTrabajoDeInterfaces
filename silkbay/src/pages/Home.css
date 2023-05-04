@@ -57,4 +57,19 @@
     .content-wrapper > .products > .product-grid{
         grid-template-columns: repeat(2, 1fr);
     }
+    .filters{
+        display: none;
+    }
+    .divisor{
+        display: none;
+    }
+    .heading-wrapper{
+        padding-left: 0rem !important;
+        align-items: center;
+        justify-content: center;
+    }
+    .heading{
+        font-size: var(--text-xl);
+        text-align: center;
+    }
 }   
