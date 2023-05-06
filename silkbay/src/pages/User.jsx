@@ -6,10 +6,17 @@ import { useState } from "react";
  
 import { useUser } from "../contexts/AuthContext";
 import Heading from "../components/Heading";
+import { useNavigate } from "react-router-dom";
 
 export default function () {
-
+	const navigate = useNavigate();
 	const user = useUser();
+
+	if(user == null){
+		navigate("/");
+		return null;
+	}
+
 	return (
 		<div className="profile-page">
             <Heading style={{marginTop: "2rem"}}>Mi cuenta</Heading>

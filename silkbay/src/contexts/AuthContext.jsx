@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createSession, dropSession, getSession } from '../utils/db';
 
 const userContext = React.createContext();
@@ -19,6 +20,7 @@ export default function AuthContext({children}) {
 
     /** @type {[import('../utils/db').User, React.Dispatch<import('../utils/db').User>]} */
     const [user, setUser] = useState(null);
+    
     useEffect(() => {
         getSession().then(session => {
             if(session){
@@ -35,9 +37,10 @@ export default function AuthContext({children}) {
     function logout(){
 
         dropSession().then(deleted => {
-            
         })
         setUser(null);
+
+   
     }
     const helpers = {
         isUserLogged,

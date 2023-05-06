@@ -83,7 +83,7 @@ export default function Register(){
                 <h1>Registrate para <br/> empezar tu <span className='title-register-banner'>aventura</span></h1>
             </div>
             <div className='section2'>
-                <img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/>
+            <Link to="/"><img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/></Link>
                 <h2 className='register-title'>Registrarse</h2>
                 <p>¡Hazte una cuenta para disfrutar de <br/> todas las funciones en Silk Bay!</p>
 

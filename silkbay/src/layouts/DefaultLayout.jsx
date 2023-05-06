@@ -8,12 +8,14 @@ import NavBarMobile from '../components/NavBarMobile'
 const outletStyle = {
   minHeight: "100%",
   minWidth: "100%",
+
 }
 const mainStyle = {
     display: "grid",
     gridTemplateRows: "max-content 1fr max-content",
     gridTemplateColumns: "1fr", 
-    minHeight: "100vh"
+    minHeight: "100vh",
+    overflowX: "hidden",
 }
 export default function DefaultLayout() {
   return (

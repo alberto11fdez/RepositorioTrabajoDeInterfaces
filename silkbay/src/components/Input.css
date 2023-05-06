@@ -26,4 +26,9 @@
     object-fit: contain;
 }
 
- 
+ @media screen and (max-width: 768px) {
+    
+.input-wrapper{
+    max-width: 80vw;
+}
+ }

@@ -1,15 +1,63 @@
 @import url("../assets/base.css");
 
-.navbarmobile{
+.navbar-mobile{
     background-color: var(--black);
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    gap: 6rem;
+    padding: 1rem 0.5rem;
+    position: relative;
+}
+.nested-menu-button{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+.menu-button, .nested-menu-button{
+    background: none;
+    outline: none;
+    border: none;
+    padding: .2rem;
+    margin: 0;
 }
 
-.menu-icon{
+
+.menu-button > img, .nested-menu-button > img{
     width: 2rem;
-    margin-left: 1rem;
+}
+
+.nav-items-mobile{
+    position: absolute;
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr);
+    transition: right ease-in-out 200ms;
+    grid-template-rows: 4rem 4rem;;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    background-color: var(--black);
+    z-index: 10;
+    list-style: none;
+    padding-top: 4rem;
+    padding-left: 2rem;
+}
+
+.nav-items-mobile > li > a{
+    color: white;
+    text-emphasis-style: none;
+}
+
+.signout-btn{
+    display: flex;
+    background-color: var(--alternative);
+    color: white;
+    align-items: center;
+    padding: 1rem .4rem;
+    font-size: var(--text-xsm);
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+    column-gap: .5rem;
 }

@@ -68,7 +68,7 @@ export default function Login() {
             <h1>¡Bienvenido otra vez<br/> a <span className='title-login-banner'>Silk Bay!</span></h1>
         </div>
         <div className='section2'>
-            <img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/>
+        <Link to="/"><img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/></Link>
             <h2 className='login-title'>Ingresar</h2>
             <p>¡Ingresa para disfrutar de todas las <br/> funciones de SilkBay</p>
 

@@ -39,7 +39,7 @@ export default function SearchInput() {
   
   const exitSearch = () => {
     clear();
-    setFocus(false)
+    setFocus(false);
     setSearches([]);
   }
   
@@ -57,7 +57,7 @@ export default function SearchInput() {
       <div className="search-wrapper">
       
         <div className='search-input-container'>
-          <input role="search" aria-label='Buscar producto' onBlur={() => setFocus(false)} onKeyDown={onKey} onFocus={() => setFocus(true)} type="text" placeholder='¿Qué estás buscando?' className='search-input' value={searchText} onChange={(ev) => setSearchText(ev.target.value)}/>
+          <input role="search" aria-label='Buscar producto' onKeyDown={onKey} onFocus={() => setFocus(true)} type="text" placeholder='¿Qué estás buscando?' className='search-input' value={searchText} onChange={(ev) => setSearchText(ev.target.value)}/>
           <button className='search-button' onClick={() => { clear(); setFocus(true); lookForProducts()}}>
               <img src={searchIcon} alt="icono para la busqueda" className='search-icon' longdesc="Este es el icono de busqueda"/>
 

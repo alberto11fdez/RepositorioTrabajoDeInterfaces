@@ -79,3 +79,16 @@
 .error{
     color: var(--alternative);
 }
+
+
+
+@media screen and (max-width: 768px){
+    .section1{
+        display: none !important;
+    }
+    .register-wrapper{
+        grid-template-columns: 100%;
+      
+    }
+   
+}

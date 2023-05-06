@@ -15,7 +15,7 @@ const buttonStyles = {
     borderRadius: "9px",
     color: "white",
     fontWeight: "bold",
-    fontSize: "1.25rem",
+    fontSize: "1rem",
     cursor: "pointer",
 }
 

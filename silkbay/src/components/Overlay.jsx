@@ -12,6 +12,7 @@ const overlayStyle = {
 }
 
 export default function Overlay({show, setShow, onClick}) { 
+ 
     if (!show){
         return;
     }
