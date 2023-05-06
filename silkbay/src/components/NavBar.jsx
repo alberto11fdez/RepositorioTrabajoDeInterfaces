@@ -37,8 +37,9 @@ export default function NavBar() {
           </div>
   
             <button className='cart' onClick={() => navigator("/cart")}>
-              <img src={cart} alt="cart icon" />
-              <span className='divisor'></span>
+              <span className='visually-hidden'>Carrito de compras</span>
+              <img aria-hidden="true" src={cart} alt="cart icon" />
+              <span className='divisor' aria-hidden="true"></span>
               <p>{count}</p>
             </button>
      

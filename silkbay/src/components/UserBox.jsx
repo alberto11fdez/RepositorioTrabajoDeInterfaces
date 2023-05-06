@@ -4,8 +4,10 @@ import { useAuthHelpers, useUser } from '../contexts/AuthContext';
 import "./UserBox.css"
 import activeArrow from "../assets/icon-arrow-active-dropdown.png";
 import logoutIcon from "../assets/icon-signout.png";
+import { useCartHelpers } from '../contexts/CartContext';
 export default function UserBox({show, setShow}) {
   const user = useUser();
+  const {emptyCart} = useCartHelpers();
   const {logout} = useAuthHelpers();
   if (!show){
     return;
@@ -26,7 +28,7 @@ export default function UserBox({show, setShow}) {
         </div>
 
         <div className='userBox-footer'>
-            <button className='signout-btn' onClick={() => logout()}>
+            <button className='signout-btn' onClick={() => {logout(); emptyCart();}}>
                 <p>Cerrar sesión</p>
                 <img src={logoutIcon} alt="" />
             </button>

@@ -17,6 +17,7 @@
 .userBox{
     width: 18.75rem;
     height: 10rem;
+    z-index: 2;
     background-color: white;
     position: absolute;
     top: 120%;

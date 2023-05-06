@@ -57,7 +57,7 @@
     justify-content: center;
     width: 5.625rem;
     gap: .9rem;
-
+    position: relative;
     border: none;
     outline: none;
     border-radius: 9px;
