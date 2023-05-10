@@ -64,19 +64,19 @@ export default function Login() {
   return (
     <>
         <div className='section1'>
-            <img className='Login_Banner' src= {Login_Banner} alt=""/>
+            <img className='Login_Banner' src= {Login_Banner} alt="Login_Banner"/>
             <h1>¡Bienvenido otra vez<br/> a <span className='title-login-banner'>Silk Bay!</span></h1>
         </div>
         <div className='section2'>
-        <Link to="/"><img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/></Link>
+        <Link to="/"><img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt="Logo Silkbay"/></Link>
             <h2 className='login-title'>Ingresar</h2>
             <p>¡Ingresa para disfrutar de todas las <br/> funciones de SilkBay</p>
 
             <Form className='form' method='post' action='/login' onSubmit={onSubmit}>
               {errorText.length > 0 && (<p className='error'>{errorText}</p>)}
               {actionData && "error" in actionData && (<p className='error'>El nombre de usuario o la contraseña son incorrectos</p>)}
-              <Input icon={UserIcon} value={username} mutator={setUsername} type="text" placeholder="Nombre de Usuario" name="username"/>
-              <Input icon={LockIcon} value={password} mutator={setPassword} type="password" placeholder="Contraseña" name="password"/>
+              <Input icon={UserIcon} value={username} mutator={setUsername} type="text" placeholder="Nombre de Usuario" name="username" title='Nombre de Usuario' aria-label='Nombre de Usuario'  />
+              <Input icon={LockIcon} value={password} mutator={setPassword} type="password" placeholder="Contraseña" name="password"  title='Contraseña' aria-label='Contraseña'  />
                <Button type="secondary">
                 Ingresar
                </Button>

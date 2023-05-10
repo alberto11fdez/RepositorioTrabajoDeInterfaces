@@ -79,19 +79,19 @@ export default function Register(){
     return (
         <>
             <div className='section1'>
-                <img className='Register_Banner' src= {Register_Banner} alt=""/>
+                <img className='Register_Banner' src= {Register_Banner} alt="Register_Banner"/>
                 <h1>Registrate para <br/> empezar tu <span className='title-register-banner'>aventura</span></h1>
             </div>
             <div className='section2'>
-            <Link to="/"><img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt=""/></Link>
+            <Link to="/"><img className='Logo_SilkBay_Icon' src= {Logo_SilkBay_Icon} alt="Logo_SilkBay_Icon"/></Link>
                 <h2 className='register-title'>Registrarse</h2>
                 <p>¡Hazte una cuenta para disfrutar de <br/> todas las funciones en Silk Bay!</p>
 
                 {errorText.length > 0 && (<p className='error'>{errorText}</p>)}
                 <Form method='post' action='/register' onSubmit={onSubmit} className="form">
-                    <Input style={{color: usernameChecked ? "green" : "red"}} icon={UserIcon} type="text" placeholder="Nombre de Usuario" name="username" value={username} mutator={setUsername}/>
-                    <Input icon={LockIcon} type="password" placeholder="Contraseña" name="password" value={password} mutator={setPassword}/>
-                    <Input icon={LockIcon} type="password" placeholder="Confirmar Contraseña" name="confirmPassword" value={repeatPassword} mutator={setRepeatPassword}/>
+                    <Input style={{color: usernameChecked ? "green" : "red"}} icon={UserIcon} type="text" placeholder="Nombre de Usuario" name="username" value={username} mutator={setUsername} title='Nombre de usuario' aria-label='Nombre de ususario'/>
+                    <Input icon={LockIcon} type="password" placeholder="Contraseña" name="password" value={password} mutator={setPassword}  title='Contraseña' aria-label='Contraseña'/>
+                    <Input icon={LockIcon} type="password" placeholder="Confirmar Contraseña" name="confirmPassword" value={repeatPassword} mutator={setRepeatPassword}  title='Confirmar Contraseña' aria-label='Confirmar Contraseña'/>
                     <Button type={"secondary"}>Registrarse</Button>
                     
                     <div className="form-footer">
