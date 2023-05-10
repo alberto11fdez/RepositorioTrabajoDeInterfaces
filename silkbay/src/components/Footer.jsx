@@ -25,7 +25,7 @@ export default function Footer() {
         <p style={textStyle}>Silkbay® 2023</p>
         <p style={textStyle}>All Rights Reserved</p>
         <Link to="/help">¿Necesitas ayuda?</Link>
-    </div>
+    </div> 
     
   )
 }
