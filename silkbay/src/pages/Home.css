@@ -101,4 +101,7 @@
             display: none;
         }
     }
+    .card > .card-bottom > .remove-button{
+        padding: 0.1rem 0.5rem;
+    }
 }   

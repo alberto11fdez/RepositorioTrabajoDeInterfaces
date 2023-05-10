@@ -28,11 +28,11 @@
 }
 
 .nav-items-mobile{
-    position: absolute;
+    position: fixed;
     display: grid;
     grid-template-columns: minmax(2rem, 1fr);
     transition: right ease-in-out 200ms;
-    grid-template-rows: 4rem 4rem;;
+    grid-template-rows: 4rem 4rem 4rem 25rem;;
     top: 0;
     width: 50vw;
     height: 100vh;
@@ -60,4 +60,23 @@
 
     cursor: pointer;
     column-gap: .5rem;
+}
+
+.logo-icon{
+    width: 75%;;
+}
+
+.footer-nav-mobile{
+    display: grid;
+    place-items: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.footer-nav-mobile a:visited, .footer-nav-mobile *{
+    color: white;
+}
+
+.footer-nav-mobile *{
+    text-align: center;
 }

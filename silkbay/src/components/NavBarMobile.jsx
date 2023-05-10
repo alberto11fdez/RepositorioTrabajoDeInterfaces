@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 import { useAuthHelpers } from "../contexts/AuthContext";
 import logoutIcon from "../assets/icon-signout.png";
 import { useCartHelpers } from "../contexts/CartContext";
+import LogoIcon from "../assets/Logo-Icon.png"
+
+const textStyles = {
+	fontSize: "0.813rem",
+	color: "rgb(255, 255, 255)",
+	textAlign: "center",
+}
 export default function NavBarMobile() {
 	const [showItems, setShowItems] = useState(false);
     const {logout, isUserLogged} = useAuthHelpers();
@@ -29,14 +36,20 @@ export default function NavBarMobile() {
 						aria-roledescription="icono menu hamburguesa"
 					/>
 				</button>
+				<li>
+					<Link to="/home" onClick={() => setShowItems(false)}>
+						Inicio
+					</Link>
+				</li>
 				{isLogged ? (
 					<>
+						
 						<li>
 							<Link to="/user" onClick={() => setShowItems(false)}>
 								Tu cuenta
 							</Link>
 						</li>
-						<li>
+						<li class="pedidos">
 							<Link to="/user/purchases" onClick={() => setShowItems(false)}>
 								Tus pedidos
 							</Link>
@@ -53,6 +66,7 @@ export default function NavBarMobile() {
 								<img src={logoutIcon} alt="" />
 							</button>
 						</li>
+					
 					</>
 				) : (
 					<>
