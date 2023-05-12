@@ -62,8 +62,8 @@ export const CATEGORY = {
  * @property {Date} expiresAt
  * @property {Date} createAt
  */
-//const API_URL = "http://localhost:3000/api/";
-const API_URL = "https://blogging-francis-queens-listprice.trycloudflare.com/api/"
+const API_URL = "http://localhost:3000/api/";
+//const API_URL = "https://blogging-francis-queens-listprice.trycloudflare.com/api/"
 
 /**
  * Get the api url

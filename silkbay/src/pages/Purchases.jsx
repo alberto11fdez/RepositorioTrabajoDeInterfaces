@@ -27,15 +27,15 @@ export default function Purchases() {
     <div className='purchases-page'>
       <Heading style={{paddingLeft:0}}>Tus compras</Heading>
       {purchases.length === 0 ? (
-      <h2 className="no-purchases-title"> 
+      <h1 className="no-purchases-title"> 
         No has hecho compras...aún...
-      </h2>
+      </h1>
       ): (
          <div className="purchases-list">
          {purchases.map(purchase => {
              return (
                  <div key={purchase.id} className="purchase-item">
-                     <h3 className="purchase-item-title">Compra del {purchase.createdAt.toDateString()}</h3>
+                     <h2 className="purchase-item-title">Compra del {purchase.createdAt.toDateString()}</h2>
                      <p className="purchase-item-total">Total: {purchase.amount}</p>
                      <ul className='purchase-item-list'>
                          {purchase.PurchaseItems.map(purchaseItem => {
