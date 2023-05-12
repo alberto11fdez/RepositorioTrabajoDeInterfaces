@@ -5,7 +5,7 @@ export default function Heading({style, children}) {
   return (
     <div className='heading-wrapper' style={style}>
         <h1 className='heading'>{children}</h1>
-        <span className='heading-divider' role='divider'/>
+        <span className='heading-divider' role='separator'/>
     </div>
    
   )

@@ -26,10 +26,10 @@
 }
 @media screen and (max-width: 768px) {
     .search-wrapper{
-        width: 15.063rem;
+        width: fit-content
     }
     .search-input-container{
-        width: 18.063rem;
+        width: 15rem;
         
     }
     .search-button{

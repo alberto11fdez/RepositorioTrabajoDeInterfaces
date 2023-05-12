@@ -1,0 +1,43 @@
+.cart{
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.625rem;
+    gap: .9rem;
+    position: relative;
+    border: none;
+    outline: none;
+    border-radius: 9px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cart.cart-mobile{
+    gap: 0;
+    width: 4rem;
+    padding: 0 1rem;
+    position: relative;
+ 
+}
+.cart > img{
+    width: 2.125rem;
+    height: 2.625rem;
+}
+.cart > p{
+    color: var(--white);
+    font-weight: bold;
+    font-size: var(--text-xl);
+ 
+}
+.cart-mobile > p{
+ 
+ 
+
+}
+.cart > .divisor{
+    width: .2px;
+    height: 70%;
+    background-color: var(--white);
+    padding: 0;
+}

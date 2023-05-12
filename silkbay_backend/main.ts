@@ -183,9 +183,12 @@ server.route("/api/session").get(async (request, response) => {
     const ip = request.ip
     const userId = request.body.userId
     try {
-        await prisma.session.delete({where: {
-            ip
-        }});   
+        const sessionCount = await prisma.session.count({where: {ip}});
+        if(sessionCount > 0){
+            await prisma.session.delete({where: {
+                ip
+            }});    
+        }
     } catch (e){
         console.log("Session not found\n" + e);
     }

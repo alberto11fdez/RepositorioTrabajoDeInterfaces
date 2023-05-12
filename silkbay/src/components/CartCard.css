@@ -1,99 +1,134 @@
 @import url("../assets/base.css");
 
-.cartCard{
-    height: 12rem;
-    width: 50rem;
+.cartCard {
+	height: 12rem;
+	width: 50rem;
 
-    display: flex;
-    column-gap: 1rem;
-    padding: 0 1rem;
-    position: relative;
-}
-
-.cartCard::after{
-    content: "";
-    display: block;
-    width: 100%;
-    height: .09rem;
-    background-color: var(--gray);
-    position: absolute;
-    bottom: -2rem;
+	display: flex;
+	column-gap: 1rem;
+	padding: 0 1rem;
+	position: relative;
 }
 
-.cartCard .purchase-img{
-    width: 11.383rem;
-    height: 11.587rem;
-    object-fit: contain;
+.cartCard::after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 0.09rem;
+	background-color: var(--gray);
+	position: absolute;
+	bottom: -2rem;
 }
 
-.cartCard .info-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    height: fit-content;
-
-    padding: 1rem 0;
-}
-.cartCard .info-wrapper *{
-    text-align: left;
-}
-.cartCard .info-wrapper .product-title{
-    font-size: var(--text-md);   
-    font-weight: bold;
+.cartCard .purchase-img {
+	width: 11.383rem;
+	height: 11.587rem;
+	object-fit: contain;
 }
 
-.cartCard .info-wrapper .description-title{
-    font-size: var(--text-sm);
+.cartCard .info-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	height: fit-content;
+
+	padding: 1rem 0;
 }
-.cartCard .info-wrapper .description{
-    font-size: var(--text-sm);
-    color: var(--gray);
-    width: 25.25rem;
-    height: 5.972rem;
+.cartCard .info-wrapper * {
+	text-align: left;
+}
+.cartCard .info-wrapper .product-title {
+	font-size: var(--text-md);
+	font-weight: bold;
 }
 
-.cartCard .controls{
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-    padding: 1rem 0;
+.cartCard .info-wrapper .description-title {
+	font-size: var(--text-sm);
+}
+.cartCard .info-wrapper .description {
+	font-size: var(--text-sm);
+	color: var(--gray);
+	width: 25.25rem;
+	height: 5.972rem;
 }
 
-.cartCard .controls .top-controls{
-    display: flex;
-    column-gap: .4rem;
-    align-items: center;
+.cartCard .controls {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: space-between;
+	padding: 1rem 0;
 }
 
-.cartCard .controls .top-controls label{
-    font-size: var(--text-sm);
+.cartCard .controls .top-controls {
+	display: flex;
+	column-gap: 0.4rem;
+	align-items: center;
 }
-.cartCard .controls .top-controls input{
-    color: var(--primary);
-    font-weight: bold;
-    width: 2rem;
-   
-    text-align: center;
-    padding: .2rem;
-    border-radius: 5px;
+
+.cartCard .controls .top-controls label {
+	font-size: var(--text-sm);
 }
-.cartCard .controls .top-controls .product-price{
-    color: var(--secondary-alt);
-    font-size: var(--text-lg);
-    margin-left: 1rem;
-    width: 2rem;
-    text-align: center;
-    padding: .2rem;
-    border-radius: 5px;
+.cartCard .controls .top-controls .top-controls-inner {
+	display: flex;
 }
-.cartCard .controls .bottom-controls .remove-button{
-    color: var(--alternative);
-    font-size: var(--text-lg);
-    font-weight: bolder;
-    display: flex;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 2rem;
+.cartCard .controls .top-controls input {
+	color: var(--primary);
+	font-weight: bold;
+	width: 2rem;
+
+	text-align: center;
+	padding: 0.2rem;
+	border-radius: 5px;
+}
+.cartCard .controls .top-controls .product-price {
+	color: var(--secondary-alt);
+	font-size: var(--text-lg);
+	margin-left: 1rem;
+	width: 2rem;
+	text-align: center;
+	padding: 0.2rem;
+	border-radius: 5px;
+}
+.cartCard .controls .bottom-controls .remove-button {
+	color: var(--alternative);
+	font-size: var(--text-lg);
+	font-weight: bolder;
+	display: flex;
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+	.cartCard {
+		width: 5rem;
+		height: 10rem;
+		column-gap: 0.2rem;
+	}
+
+	.cartCard .purchase-img {
+		width: 7rem;
+		height: 7rem;
+	}
+
+	.cartCard .info-wrapper .description {
+		font-size: var(--text-sm);
+		color: var(--gray);
+		width: 10rem;
+		height: 5.972rem;
+		overflow: hidden;
+	}
+
+	.cartCard .controls .top-controls {
+		flex-direction: column;
+		justify-items: center;
+		align-items: center;
+	}
+
+	.cartCard .controls .top-controls .product-price {
+		width: auto;
+		margin: auto;
+	}
 }

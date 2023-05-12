@@ -7,19 +7,20 @@ import { Link } from "react-router-dom";
 import { useAuthHelpers } from "../contexts/AuthContext";
 import logoutIcon from "../assets/icon-signout.png";
 import { useCartHelpers } from "../contexts/CartContext";
-import LogoIcon from "../assets/Logo-Icon.png"
+import LogoIcon from "../assets/Logo-Icon.png";
+import CartButton from "./CartButton";
 
 const textStyles = {
 	fontSize: "0.813rem",
 	color: "rgb(255, 255, 255)",
 	textAlign: "center",
-}
+};
 export default function NavBarMobile() {
 	const [showItems, setShowItems] = useState(false);
-    const {logout, isUserLogged} = useAuthHelpers();
-    const isLogged = isUserLogged();
-    console.log(isLogged)
-    const {emptyCart} = useCartHelpers();
+	const { logout, isUserLogged } = useAuthHelpers();
+	const isLogged = isUserLogged();
+	console.log(isLogged);
+	const { emptyCart } = useCartHelpers();
 	return (
 		<div className="navbar-mobile">
 			<ul
@@ -43,7 +44,6 @@ export default function NavBarMobile() {
 				</li>
 				{isLogged ? (
 					<>
-						
 						<li>
 							<Link to="/user" onClick={() => setShowItems(false)}>
 								Tu cuenta
@@ -66,7 +66,6 @@ export default function NavBarMobile() {
 								<img src={logoutIcon} alt="" />
 							</button>
 						</li>
-					
 					</>
 				) : (
 					<>
@@ -80,6 +79,8 @@ export default function NavBarMobile() {
 				)}
 			</ul>
 			<SearchInput />
+
+			{isLogged && <CartButton />}
 			<button className="menu-button" onClick={() => setShowItems(true)}>
 				<img
 					src={menu}

@@ -65,3 +65,9 @@
     column-gap: 2rem;
     margin-top: 2rem;
 }
+
+@media screen and (max-width: 768px) {
+    .cart-page-wrapper{
+        width: 90%;
+    }
+}
