@@ -62,7 +62,7 @@ export const CATEGORY = {
  * @property {Date} expiresAt
  * @property {Date} createAt
  */
-const API_URL = "http://192.168.18.245:3000/api/";
+const API_URL = "http://localhost:3000/api/";
 
 /**
  * Get the api url

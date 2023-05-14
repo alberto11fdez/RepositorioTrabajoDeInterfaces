@@ -40,3 +40,9 @@
     margin-top: 2rem;
     font-size: var(--text-lg);
 }
+
+@media screen and (max-width: 768px){
+    li.product-item{
+        width: 13rem;   
+    }
+}

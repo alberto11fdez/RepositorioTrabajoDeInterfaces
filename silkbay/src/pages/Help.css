@@ -48,3 +48,12 @@
 .help-page h2{
 	color: var(--secondary);
 }
+
+@media screen and (max-width: 768px){
+	.help-container{
+		width: 100%;
+	}
+	.help-page img{
+		width: 100%;
+	}
+}
