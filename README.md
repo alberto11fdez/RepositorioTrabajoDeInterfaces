@@ -1,9 +1,9 @@
-# RepositorioTrabajoDeInterfaces
+# Repositorio Trabajo De Interfaces
 Proyecto de Interfaces de Usuario 2022/2023
 
-PASOS PARA EJECUTAR EL PROJECTO
-1. Clonar el respositorio
-2. Abrir el projecto desde un editor de codigo
+PASOS PARA EJECUTAR EL PROYECTO
+1. Clonar el repositorio
+2. Abrir el proyecto desde un editor de código
 3. Instalar las dependencias de tanto el frontend como el backend:
 ```bash
 cd silkbay && npm install
@@ -28,4 +28,4 @@ Este comando llenará la base de datos con información falsa para testing.
 npm run dev
 ```
 
-Ahora el projecto debería de estar disponible en la URL http://localhost:3000
+Ahora el proyecto debería de estar disponible en la URL http://localhost:3000
